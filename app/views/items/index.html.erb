@@ -1,0 +1,22 @@
+<h1> Melissa's Library </h1>
+
+
+  <%= link_to 'New Item', new_item_path %>
+
+  <%=@items.each do |item| %>
+  <%=item.item_type.name%> <%=item.title%>
+
+  <%=image_tag(@item.image_url)%>
+  <br>
+  <%=item.completed?? h("Completed") : h("NotCompleted") %>
+
+  <br>
+
+  <%= link_to 'Edit', edit_item_path(item) %>
+
+  <%= link_to 'Delete', item_path(item), method: :delete %>
+  </p>
+
+	
+
+<%end%>
