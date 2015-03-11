@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-    @item = Item.new(entry_params)
+    @item = Item.new(item_params)
     if @item.save
       @item.image_fetcher
       redirect_to items_path
@@ -38,12 +38,8 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to items_path
   end
+
+  def item_params
+    params.require(:item).permit(:title, :completed_on, :item_type_id)
+  end
 end
-
-
-
-
-
-
-
-

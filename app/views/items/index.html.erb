@@ -6,7 +6,7 @@
   <%=@items.each do |item| %>
   <%=item.item_type.name%> <%=item.title%>
 
-  <%=image_tag(@item.image_url)%>
+  <%=image_tag(item.image_url)%>
   <br>
   <%=item.completed?? h("Completed") : h("NotCompleted") %>
 
@@ -17,6 +17,6 @@
   <%= link_to 'Delete', item_path(item), method: :delete %>
   </p>
 
-	
+
 
 <%end%>
