@@ -4,18 +4,17 @@ class Item < ActiveRecord::Base
 
 	def completed?
 		completed_on != nil
+    end
 
 
 
     def image_fetcher
-    	self.imae_url = ImageFetcher.new.fetch(self.title)
+    	self.image_url = ImageFetcher.new.fetch(self.title)
     	save
+    end
 
-    	def to_param
-    		"#{id}-#{title.paramerterize}"
-    	end
-
-
+	def to_param
+		"#{id}-#{title.parameterize}"
 	end
 
 
